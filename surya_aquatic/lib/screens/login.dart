@@ -24,7 +24,13 @@ class _loginpageState extends State<loginpage> {
               children: [
                 Container(
                   height: 300,
-                  color: Colors.blue,
+                  decoration: BoxDecoration(
+                    gradient: LinearGradient(
+                      colors:[Colors.blue , Colors.blue.shade100],
+                      begin: Alignment.bottomLeft,
+                      end: Alignment.topRight
+                    ),
+                  ),
                 ),
                 Padding(
                   padding: const EdgeInsets.only(top: 16,),
@@ -51,6 +57,9 @@ class _loginpageState extends State<loginpage> {
                           ),
                         ),
                         child: Text("Get Started"),
+                      ),
+                      const SizedBox(
+                        width: 12,
                       ),
                     ],
                   ),
@@ -88,103 +97,106 @@ class _loginpageState extends State<loginpage> {
                   child: Padding(
                     padding: const EdgeInsets.all(16.0),
                     child: Center(
-                      child: Column(
-                        children: [
-                          const SizedBox(
-                            height: 24,
-                          ),
-                          Text(
-                            'Welcome Back to',
-                            style: TextStyle(
-                              fontSize: 20,
-                              fontWeight: FontWeight.bold,
-                              color: Colors.blue,
+                      child: Container(
+                        constraints: BoxConstraints(maxWidth: 300),
+                        child: Column(
+                          children: [
+                            const SizedBox(
+                              height: 24,
                             ),
-                          ),
-                          Text(
-                            'Surya Aquatic',
-                            style: TextStyle(
-                              fontSize: 20,
-                              color: Colors.blue,
-                            ),
-                          ),
-                          const SizedBox(
-                            height: 16,
-                          ),
-                          Text(
-                            'enter your details here',
-                            style: TextStyle(
-                              fontSize: 12,
-                              color: Colors.blue,
-                            ),
-                          ),
-                          const SizedBox(
-                            height: 16,
-                          ),
-                          TextField(
-                            controller: _username,
-                            decoration: const InputDecoration(
-                              border: OutlineInputBorder(),
-                              labelText: 'Username',
-                            ),
-                          ),
-                          const SizedBox(
-                            height: 16,
-                          ),
-                          TextField(
-                            controller: _password,
-                            decoration: const InputDecoration(
-                              border: OutlineInputBorder(),
-                              labelText: 'Password',
-                            ),
-                            obscureText: true,
-                          ),
-                          const SizedBox(
-                            height: 24,
-                          ),
-                          ElevatedButton(
-                            onPressed: () async {
-                              String username = _username.text;
-                              String pasword = _password.text;
-
-                              if (validatedlogg(username, pasword)) {
-                                SharedPreferences prefs =
-                                    await SharedPreferences.getInstance();
-                                await prefs.setBool('islogged', true);
-                                await prefs.setString('username', username);
-                                Navigator.pushReplacement(
-                                    context,
-                                    MaterialPageRoute(
-                                        builder: (context) => navbar_screen()));
-                              } else {
-                                ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
-                                      content: Text('invalid email or password')
-                                    ),
-                                );
-                              }
-                            },
-                            style: ElevatedButton.styleFrom(
-                              backgroundColor: Colors.blue.shade300, 
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(8),
-                              ),
-                              minimumSize: const Size.fromHeight(48), 
-                              elevation: 0,
-                            ),
-                            child: const Text(
-                              'Login',
+                            Text(
+                              'Welcome Back to',
                               style: TextStyle(
-                                color: Colors.white,),
+                                fontSize: 20,
+                                fontWeight: FontWeight.bold,
+                                color: Colors.blue,
+                              ),
                             ),
-                          ),
-                          const SizedBox(height: 16,),
-                          Text('forgot your password?',
+                            Text(
+                              'Surya Aquatic',
+                              style: TextStyle(
+                                fontSize: 20,
+                                color: Colors.blue,
+                              ),
+                            ),
+                            const SizedBox(
+                              height: 16,
+                            ),
+                            Text(
+                              'enter your details here',
                               style: TextStyle(
                                 fontSize: 12,
-                                color: Colors.blue.shade400,
+                                color: Colors.blue,
                               ),
-                          ),
-                        ],
+                            ),
+                            const SizedBox(
+                              height: 16,
+                            ),
+                            TextField(
+                              controller: _username,
+                              decoration: const InputDecoration(
+                                border: OutlineInputBorder(),
+                                labelText: 'Username',
+                              ),
+                            ),
+                            const SizedBox(
+                              height: 16,
+                            ),
+                            TextField(
+                              controller: _password,
+                              decoration: const InputDecoration(
+                                border: OutlineInputBorder(),
+                                labelText: 'Password',
+                              ),
+                              obscureText: true,
+                            ),
+                            const SizedBox(
+                              height: 24,
+                            ),
+                            ElevatedButton(
+                              onPressed: () async {
+                                String username = _username.text;
+                                String pasword = _password.text;
+                        
+                                if (validatedlogg(username, pasword)) {
+                                  SharedPreferences prefs =
+                                      await SharedPreferences.getInstance();
+                                  await prefs.setBool('islogged', true);
+                                  await prefs.setString('username', username);
+                                  Navigator.pushReplacement(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (context) => navbar_screen()));
+                                } else {
+                                  ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+                                        content: Text('invalid email or password')
+                                      ),
+                                  );
+                                }
+                              },
+                              style: ElevatedButton.styleFrom(
+                                backgroundColor: Colors.blue.shade300, 
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(8),
+                                ),
+                                minimumSize: const Size.fromHeight(48), 
+                                elevation: 0,
+                              ),
+                              child: const Text(
+                                'Login',
+                                style: TextStyle(
+                                  color: Colors.white,),
+                              ),
+                            ),
+                            const SizedBox(height: 16,),
+                            Text('forgot your password?',
+                                style: TextStyle(
+                                  fontSize: 12,
+                                  color: Colors.blue.shade400,
+                                ),
+                            ),
+                          ],
+                        ),
                       ),
                     ),
                   ),

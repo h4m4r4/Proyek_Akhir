@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:surya_aquatic/screens/detail.dart';
 import 'package:surya_aquatic/screens/login.dart';
 import 'package:surya_aquatic/screens/navbar_screen.dart';
 
