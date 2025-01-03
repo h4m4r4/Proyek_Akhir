@@ -13,76 +13,57 @@ class home extends StatelessWidget {
         child: Container(
           decoration: BoxDecoration(
             gradient: LinearGradient(
-              colors:[Colors.blue.shade400, Colors.blue.shade200, Colors.blue.shade100],
-              begin: Alignment.topLeft,
-              end: Alignment.bottomRight,
+              colors:[Colors.blue.shade400, Colors.blue.shade100],
+              begin: Alignment.bottomLeft,
+              end: Alignment.topRight,
             ),
           ),
           child: Column(
             children: [
-              Stack(children: [
+              Stack(
+                children: [
                 Container(
                   decoration: BoxDecoration(
-                    borderRadius: BorderRadius.only(
-                      bottomLeft: Radius.circular(24),
-                      bottomRight: Radius.circular(24),
+                    gradient: LinearGradient(
+                      colors:[Colors.blue,Colors.blue.shade100],
+                      begin: Alignment.bottomLeft,
+                      end: Alignment.topRight,
                     ),
-                    image: DecorationImage(
-                      image: AssetImage(
-                        'images/main2.jpg',
-                      ),
-                      fit: BoxFit.cover,
-                    ),
-                    boxShadow: [
-                      BoxShadow(
-                        color: Colors.blue, // Warna bayangan
-                        spreadRadius: 1, // Seberapa jauh bayangan menyebar
-                        blurRadius: 3, // Seberapa halus bayangan
-                      ),
-                    ],
                   ),
                   width: double.infinity,
-                  height: 400,
+                  height: 250,
+                  child: Center(
+                    child: Text('Surya Aquatic',
+                      style: TextStyle(
+                        fontSize: 36,
+                        fontWeight: FontWeight.w200,
+                        color: Colors.white,
+                      ),
+                    ),
+                  ),
                 ),
                 Padding(
-                  padding: const EdgeInsets.only(left: 8.0, top: 8.0),
-                  child: Text(
-                    'Surya Aquatic',
-                    style: TextStyle(
-                        fontSize: 16,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.blue),
-                  ),
-                )
-              ]),
-              SizedBox(
-                height: 40,
-              ),
-              Row(
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.only(left: 8),
-                    child: Text(
-                      'Produk',
-                      style: TextStyle(
-                          fontSize: 24,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.white),
+                  padding: const EdgeInsets.only(top: 210),
+                  child: Container(
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.only(
+                        topLeft: Radius.circular(16),
+                        topRight: Radius.circular(16)
+                      ),
+                      gradient: LinearGradient(
+                        colors: [Colors.white, Colors.blue.shade50, Colors.blue.shade100],
+                        begin: Alignment.topCenter,
+                        end: Alignment.bottomCenter,
+                      )
                     ),
-                  )
-                ],
-              ),
-              SizedBox(
-                height: 8,
-              ),
-              Column(
+                    child: Column(
                 children: [
                   GridView.builder(
                     shrinkWrap: true,
                     gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                         crossAxisCount: 2,
                         crossAxisSpacing: 8,
-                        mainAxisSpacing: 16),
+                        mainAxisSpacing: 8),
                     padding: const EdgeInsets.all(8),
                     itemCount: 6,
                     itemBuilder: (context, index) {
@@ -128,6 +109,11 @@ class home extends StatelessWidget {
                   ),
                 ],
               ),
+                  ),
+                )
+              ]
+              ),
+              
               // Container(
               //   height: 40,
               //   color: Colors.white,

@@ -4,7 +4,7 @@ class Cupang {
   final String gambar;
   final String deskripsi;
   final String harga;
-  bool isfavorite;
+  // bool isfavorite;
 
   Cupang({
     required this.nama,
@@ -12,6 +12,6 @@ class Cupang {
     required this.gambar,
     required this.deskripsi,
     required this.harga,
-    this.isfavorite = false,
+    // this.isfavorite = false,
   });
 }
