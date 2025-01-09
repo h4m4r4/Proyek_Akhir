@@ -40,7 +40,7 @@ class _loginpageState extends State<loginpage> {
                       Text('dont have an account?',
                       style: TextStyle(
                         fontSize: 12,
-                        color: Colors.blue.shade100
+                        color: Colors.white
                       ),
                       ),
                       const SizedBox(

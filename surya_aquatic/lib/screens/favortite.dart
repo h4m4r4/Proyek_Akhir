@@ -56,16 +56,16 @@ class _favoriteState extends State<favorite> {
                       begin: Alignment.bottomLeft,
                       end: Alignment.topRight
                     ),
-                    borderRadius: BorderRadius.only(
-                      bottomLeft: Radius.circular(12),
-                      bottomRight: Radius.circular(12)
-                    )
+                    // borderRadius: BorderRadius.only(
+                    //   bottomLeft: Radius.circular(12),
+                    //   bottomRight: Radius.circular(12)
+                    // )
                   ),
-                  height: 80,
+                  height: 60,
                   child: Center(
                     child: Text('Favorite',
                       style: TextStyle(
-                        fontSize: 24,
+                        fontSize: 16,
                         color: Colors.white,
                       ),
                     ),

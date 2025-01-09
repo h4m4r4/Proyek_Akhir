@@ -31,7 +31,7 @@ class home extends StatelessWidget {
                     ),
                   ),
                   width: double.infinity,
-                  height: 250,
+                  height: 300,
                   child: Center(
                     child: Text('Surya Aquatic',
                       style: TextStyle(
@@ -43,7 +43,7 @@ class home extends StatelessWidget {
                   ),
                 ),
                 Padding(
-                  padding: const EdgeInsets.only(top: 210),
+                  padding: const EdgeInsets.only(top: 250),
                   child: Container(
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.only(
